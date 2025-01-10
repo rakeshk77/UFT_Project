@@ -2,9 +2,10 @@ pipeline {
     agent any
 
     environment {
-        GIT_REPO = 'https://github.com/your-username/your-repo.git' // Replace with your repository URL
-        UFT_INSTALL_PATH = 'C:\\Program Files\\Micro Focus\\Unified Functional Testing\\bin' // Update this if your UFT is installed elsewhere
-        RESULTS_PATH = 'C:\\UFTResults'
+        GIT_REPO = 'https://github.com/rakeshk77/UFT_Project.git' 
+        UFT_INSTALL_PATH = 'C:\\Program Files (x86)\\OpenText\\UFT One\\bin' // Update this if your UFT is installed elsewhere
+	TEST_PATH = 'D:\\UFT Project\\Web\\Tests\\E2E_Shopping'
+        RESULTS_PATH = 'D:\\UFT Project\\Results'
     }
 
     stages {
@@ -24,9 +25,9 @@ pipeline {
 
         stage('Test') {
             steps {
-                echo 'Running UFT tests...'
+                echo 'Running UFT test: E2E_Shopping...'
                 script {
-                    bat "\"${UFT_INSTALL_PATH}\\uftbatchrunner.exe\" -run -resultsFolder \"${RESULTS_PATH}\""
+                    bat "\"${UFT_INSTALL_PATH}\\uftbatchrunner.exe\" -run -test \"${TEST_PATH}\" -resultsFolder \"${RESULTS_PATH}\""
                 }
             }
         }

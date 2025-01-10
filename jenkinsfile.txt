@@ -1,0 +1,62 @@
+pipeline {
+    agent any
+
+    environment {
+        GIT_REPO = 'https://github.com/your-username/your-repo.git' // Replace with your repository URL
+        UFT_INSTALL_PATH = 'C:\\Program Files\\Micro Focus\\Unified Functional Testing\\bin' // Update this if your UFT is installed elsewhere
+        RESULTS_PATH = 'C:\\UFTResults'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Cloning the repository...'
+                git branch: 'main', url: "${GIT_REPO}" // Adjust the branch if needed
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Building project...'
+                // Add any build steps if needed, otherwise this stage can be skipped.
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Running UFT tests...'
+                script {
+                    bat "\"${UFT_INSTALL_PATH}\\uftbatchrunner.exe\" -run -resultsFolder \"${RESULTS_PATH}\""
+                }
+            }
+        }
+
+        stage('Archive Results') {
+            steps {
+                echo 'Archiving UFT test results...'
+                archiveArtifacts artifacts: 'C:\\UFTResults\\**', allowEmptyArchive: true
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying application...'
+                // Add deployment steps if necessary.
+            }
+        }
+
+        stage('Release') {
+            steps {
+                echo 'Releasing application...'
+                // Add release steps, such as notifying stakeholders or updating version numbers.
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'Cleaning up workspace...'
+            cleanWs()
+        }
+    }
+}

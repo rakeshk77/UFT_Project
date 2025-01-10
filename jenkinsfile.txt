@@ -4,7 +4,7 @@ pipeline {
     environment {
         GIT_REPO = 'https://github.com/rakeshk77/UFT_Project.git' 
         UFT_INSTALL_PATH = 'C:\\Program Files (x86)\\OpenText\\UFT One\\bin' // Update this if your UFT is installed elsewhere
-	TEST_PATH = 'D:\\UFT Project\\Web\\Tests\\E2E_Shopping'
+        TEST_PATH = 'D:\\UFT Project\\Web\\Tests\\E2E_Shopping'
         RESULTS_PATH = 'D:\\UFT Project\\Results'
     }
 
@@ -35,7 +35,7 @@ pipeline {
         stage('Archive Results') {
             steps {
                 echo 'Archiving UFT test results...'
-                archiveArtifacts artifacts: 'C:\\UFTResults\\**', allowEmptyArchive: true
+                archiveArtifacts artifacts: "${RESULTS_PATH}\\**", allowEmptyArchive: true
             }
         }
 

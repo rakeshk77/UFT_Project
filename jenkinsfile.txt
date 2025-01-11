@@ -5,7 +5,7 @@ pipeline {
         GIT_REPO = 'https://github.com/rakeshk77/UFT_Project.git' 
         UFT_INSTALL_PATH = 'C:\\Program Files (x86)\\OpenText\\UFT One\\bin' // Update this if your UFT is installed elsewhere
         TEST_PATH = 'D:\\UFT Project\\Web\\Tests\\E2E_Shopping'
-        RESULTS_PATH = 'D:\\UFT Project\\Results'
+        RESULTS_PATH = 'D:\\UFT Project\\Web\\Tests\\E2E_Shopping'
     }
 
     stages {
@@ -27,7 +27,7 @@ pipeline {
             steps {
                 echo 'Running UFT test: E2E_Shopping...'
                 script {
-                    bat "\"${UFT_INSTALL_PATH}\\UFTBatchRunnerCMD.exe\" -source \"${TEST_PATH}\""
+                    bat "\"${UFT_INSTALL_PATH}\\UFTBatchRunnerCMD.exe\" -source \"${TEST_PATH}\" -result \"${RESULTS_PATH}\""
                 }
             }
         }

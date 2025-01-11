@@ -1,2 +1,3 @@
-﻿Browser("Demo Web Shop").Page("Demo Web Shop. Login").Link("Log out").Click
+﻿Wait(5)
+Browser("Demo Web Shop").Page("Demo Web Shop. Login").Link("Log out").Click
 SystemUtil.CloseProcessByName "chrome.exe"

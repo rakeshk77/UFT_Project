@@ -1,5 +1,5 @@
 ﻿
-RunAction "Action_Login [Login]", oneIteration ,"rakesh_demo@gmail.com","Ramos@12345"
+RunAction "Action_Login [Login]", oneIteration ,"rakesh_demo1@gmail.com","Ramos@12345"
 RunAction "ShoppingProducts [SelectProducts]", oneIteration
 RunAction "Action_ShoppingCart [ShoppingCart]", oneIteration,"Blue Jeans|Casual Golf Belt",strSubtotal
 RunAction "Action_Checkout_BillingAddress [Checkout_BillingAddress]", oneIteration

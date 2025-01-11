@@ -1,0 +1,5 @@
+D:\UFT Project\Web\Tests\E2E_Shopping\Test.tsp
+
+--------E2E_Shopping-------------
+
+Run results can be found at 'D:\UFT Project\Results\Report\Report'

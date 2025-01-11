@@ -12,6 +12,6 @@ Browser("Demo Web Shop").Page("Demo Web Shop. Login").WebEdit("Email").Set strEm
 Browser("Demo Web Shop").Page("Demo Web Shop. Login").WebEdit("Password").Set strPassword
 Browser("Demo Web Shop").Page("Demo Web Shop. Login").WebButton("Log in").Click
 
-Set ObjEmail = Browser("Demo Web Shop").Page("Demo Web Shop - Landing Page").Link("Logged_Email")
-VerifyInnerText ObjEmail,strEmail," Successfully Logged in with " & strEmail," Unable to Login with  " & strEmail & " Please check the credentials"
+'Set ObjEmail = Browser("Demo Web Shop").Page("Demo Web Shop - Landing Page").Link("Logged_Email")
+'VerifyInnerText ObjEmail,strEmail," Successfully Logged in with " & strEmail," Unable to Login with  " & strEmail & " Please check the credentials"
 

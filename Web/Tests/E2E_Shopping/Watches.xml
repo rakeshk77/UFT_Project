@@ -3,4 +3,5 @@
   <WatchEntry1 value="Trim(ObjWebTable.GetCellData(i, 3))" />
   <WatchEntry2 value="Trim(ArrProducts(j))" />
   <WatchEntry3 value="Parameter(&quot;PaymentMethod&quot;)" />
+  <WatchEntry4 value="p_Obj" />
 </Properties>

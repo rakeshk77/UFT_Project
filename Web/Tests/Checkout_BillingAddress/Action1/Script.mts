@@ -1,4 +1,6 @@
-﻿Browser("Demo Web Shop").Page("Demo Web Shop. Checkout").WebEdit("BillingNewAddress.FirstName").Set "Dhanya"
+﻿Browser("Demo Web Shop").Page("Demo Web Shop. Checkout").WebList("billing_address_option").Select "New Address"
+
+Browser("Demo Web Shop").Page("Demo Web Shop. Checkout").WebEdit("BillingNewAddress.FirstName").Set "Dhanya"
 Browser("Demo Web Shop").Page("Demo Web Shop. Checkout").WebEdit("BillingNewAddress.LastName").Set"Rakesh"
 Browser("Demo Web Shop").Page("Demo Web Shop. Checkout").WebEdit("BillingNewAddress.Address1").Set "DD SilverStone"
 Browser("Demo Web Shop").Page("Demo Web Shop. Checkout").WebEdit("BillingNewAddress.Address2").Set "Vaduthala"

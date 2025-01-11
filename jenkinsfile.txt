@@ -2,9 +2,7 @@ pipeline {
     agent any
 
     environment {
-        GIT_REPO = 'https://github.com/rakeshk77/UFT_Project.git' 
-        UFT_INSTALL_PATH = 'C:\\Program Files (x86)\\OpenText\\UFT One\\bin' // Update this if your UFT is installed elsewhere
-        TEST_PATH = 'D:\\UFT Project\\Web\\Tests\\E2E_Shopping'
+        GIT_REPO = 'https://github.com/rakeshk77/UFT_Project.git'
         RESULTS_PATH = 'D:\\UFT Project\\Results'
     }
 
@@ -25,9 +23,10 @@ pipeline {
 
         stage('Test') {
             steps {
-                echo 'Running UFT test: E2E_Shopping...'
+                echo 'Running UFT test using web.bat...'
                 script {
-                    bat "\"${UFT_INSTALL_PATH}\\uftbatchrunner.exe\" -run -test \"${TEST_PATH}\" -resultsFolder \"${RESULTS_PATH}\""
+                    // Run the web.bat file from the cloned repository
+                    bat "web.bat"
                 }
             }
         }

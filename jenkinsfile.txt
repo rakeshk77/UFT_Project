@@ -27,7 +27,7 @@ pipeline {
             steps {
                 echo 'Running UFT test: E2E_Shopping...'
                 script {
-                    bat "\"${UFT_INSTALL_PATH}\\UFTBatchRunnerCMD.exe\" -source \"${TEST_PATH}\" -result \"${RESULTS_PATH}\""
+                    bat "\"${UFT_INSTALL_PATH}\\UFTBatchRunnerCMD.exe\" -source \"${TEST_PATH}\""
                 }
             }
         }

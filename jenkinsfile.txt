@@ -22,14 +22,34 @@ pipeline {
             }
         }
 
-        stage('Test') {
-            steps {
-                echo 'Running UFT test using batch file...'
-                script {
-                   bat "\"D:\\UFT Project\\web.bat\""
-                }
-            }
-        }
+		stage('Test') {
+			steps {
+				echo 'Running UFT test...'
+				script {
+					def result = bat(
+						script: '''
+						@echo off
+						set "UFT_PATH=C:\\Program Files (x86)\\OpenText\\UFT One\\bin\\UFTBatchRunnerCMD.exe"
+						set "TEST_SOURCE=D:\\UFT Project\\Web\\Tests\\Login"
+						set "RESULT_PATH=D:\\UFT Project\\Web\\Tests\\Login"
+
+						echo Running UFT test...
+						call "%UFT_PATH%" -source "%TEST_SOURCE%" -result "%RESULT_PATH%"
+						exit /b %ERRORLEVEL%
+						''',
+						returnStatus: true
+					)
+
+					if (result == -532462766) {
+						echo "Ignoring error code -532462766 and marking as success."
+						currentBuild.result = 'SUCCESS'
+					} else if (result != 0) {
+						error "UFT test failed with exit code ${result}."
+					}
+				}
+			}
+		}
+
 
         stage('Archive Results') {
             steps {

@@ -4,7 +4,7 @@ pipeline {
     environment {
         GIT_REPO = 'https://github.com/rakeshk77/UFT_Project.git' 
         TEST_BAT_FILE = 'D:\\UFT Project\\web.bat' // Path to your batch file
-        RESULTS_PATH = 'D:\\UFT Project\\Web\\Tests\\Login\\Report' // Path to the UFT test results
+        RESULTS_PATH = 'D:\\UFT Project\\Web\\Tests\\E2E_Shopping\\Report' // Path to the UFT test results
     }
 
     stages {
@@ -30,8 +30,8 @@ pipeline {
 						script: '''
 						@echo off
 						set "UFT_PATH=C:\\Program Files (x86)\\OpenText\\UFT One\\bin\\UFTBatchRunnerCMD.exe"
-						set "TEST_SOURCE=D:\\UFT Project\\Web\\Tests\\Login"
-						set "RESULT_PATH=D:\\UFT Project\\Web\\Tests\\Login"
+						set "TEST_SOURCE=D:\\UFT Project\\Web\\Tests\\E2E_Shopping"
+						set "RESULT_PATH=D:\\UFT Project\\Web\\Tests\\E2E_Shopping"
 
 						echo Running UFT test...
 						call "%UFT_PATH%" -source "%TEST_SOURCE%" -result "%RESULT_PATH%"
